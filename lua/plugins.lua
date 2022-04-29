@@ -17,6 +17,8 @@ end
 
 -- Packages
 return packer.startup(function(use)
+    -- Packer itself
+    use 'wbthomason/packer.nvim'
 
     -- Color scheme
     use {
@@ -37,6 +39,12 @@ return packer.startup(function(use)
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
         config = [[require('plugins.nvim-tree')]]
+    }
+
+    -- Keymaps Menu
+    use {
+        "folke/which-key.nvim",
+        config = [[require('plugins.which-key')]]
     }
 
     -- Automatically set up your configuration after cloning packer.nvim

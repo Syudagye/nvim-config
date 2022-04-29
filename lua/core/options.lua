@@ -24,3 +24,6 @@ vim.opt.swapfile = false
 -- vim.opt.matchpairs = '(:),{:},[:],<:>,":",\':\',`:`,/*:*/'
 vim.opt.undofile = true
 vim.opt.guifont = 'iosevka:h10'
+vim.opt.timeoutlen = 500
+
+vim.g.mapleader = ' '

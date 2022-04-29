@@ -49,3 +49,10 @@ vim.g.nvim_tree_icons = {
         symlink_open = "",
     }
 }
+
+-- Spawning an explorer
+local wk = require("which-key")
+
+wk.register({
+    e = { '<cmd>:NvimTreeToggle<cr>', 'File Tree', noremap = true }
+}, { prefix = "<leader>" })
