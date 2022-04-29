@@ -29,7 +29,7 @@ return packer.startup(function(use)
     -- Buffer line
     use {
         'akinsho/bufferline.nvim', 
-        tag = "*", 
+        tag = '*',
         requires = 'kyazdani42/nvim-web-devicons',
         config = [[require('plugins.bufferline')]]
     }
@@ -43,8 +43,31 @@ return packer.startup(function(use)
 
     -- Keymaps Menu
     use {
-        "folke/which-key.nvim",
+        'folke/which-key.nvim',
         config = [[require('plugins.which-key')]]
+    }
+
+    -- Completion
+    use 'onsails/lspkind.nvim' -- for vscode-like icons in completion menu
+    use 'L3MON4D3/LuaSnip' -- Snippets engine
+    use {
+        'hrsh7th/nvim-cmp',
+        config = [[require('plugins.cmp')]]
+    }
+    use {'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp'}
+    use {'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'}
+    use {'hrsh7th/cmp-path', after = 'nvim-cmp'}
+    use {'hrsh7th/cmp-buffer', after = 'nvim-cmp'}
+    use {'f3fora/cmp-spell', after = 'nvim-cmp'}
+
+
+    ---- Language specific things ----
+
+    -- Rust
+    use {
+        'saecki/crates.nvim',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = [[require('crates').setup()]] -- Need to dive into configuring this later
     }
 
     -- Automatically set up your configuration after cloning packer.nvim

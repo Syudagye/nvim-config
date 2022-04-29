@@ -13,6 +13,7 @@ vim.opt.scrolloff = 8
 vim.opt.linebreak = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.ignorecase = true
@@ -25,5 +26,6 @@ vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.guifont = 'iosevka:h10'
 vim.opt.timeoutlen = 500
+vim.opt.pumwidth = 30 -- minimum completion menu width (do not work idk)
 
 vim.g.mapleader = ' '
