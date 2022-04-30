@@ -13,5 +13,26 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
         extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
         max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    }
+    },
+    textobjects = {
+        select = {
+            enable = true,
+
+            -- Automatically jump forward to textobj, similar to targets.vim
+            lookahead = true,
+
+            keymaps = {
+                -- You can use the capture groups defined in textobjects.scm
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner",
+                ["ab"] = "@block.outer",
+                ["ib"] = "@block.inner",
+                ["iP"] = "@parameter.inner",
+                ["aP"] = "@parameter.outer",
+                ["as"] = "@statement.outer",
+            },
+        },
+    },
 }

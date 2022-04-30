@@ -91,6 +91,7 @@ return packer.startup(function(use)
         config = [[require('plugins.treesitter')]]
     }
     use 'p00f/nvim-ts-rainbow'
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
 
     -- Git
     use {
@@ -129,6 +130,7 @@ return packer.startup(function(use)
             require('Comment').setup()
         end
     }
+    use 'https://gitlab.com/yorickpeterse/nvim-pqf'
 
 
     ---- Language specific things ----
