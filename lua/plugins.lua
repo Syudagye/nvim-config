@@ -21,7 +21,7 @@ local wk = require('which-key')
 wk.register({
     p = {
         name = 'Plugins',
-        u = { '<cmd>PackerSync<cr>', 'Edit Config', noremap = true },
+        u = { '<cmd>PackerSync<cr>', 'Update Packages', noremap = true },
         s = { '<cmd>PackerStatus<cr>', 'Packer Status', noremap = true },
     }
 }, { prefix = "<leader>" })
@@ -94,6 +94,27 @@ return packer.startup(function(use)
 
     -- Utilities
     use 'kazhala/close-buffers.nvim'
+    use 'ntpeters/vim-better-whitespace'
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        config = function()
+            require("indent_blankline").setup {
+                space_char_blankline = " ",
+                show_current_context = true,
+                show_current_context_start = true,
+            }
+        end
+    }
+    use {
+        'windwp/nvim-autopairs',
+        config = [[require('plugins.autopairs')]]
+    }
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 
 
     ---- Language specific things ----
