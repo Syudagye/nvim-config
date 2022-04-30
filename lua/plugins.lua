@@ -92,6 +92,20 @@ return packer.startup(function(use)
     }
     use 'p00f/nvim-ts-rainbow'
 
+    -- Git
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup()
+        end
+    }
+    use 'kdheepak/lazygit.nvim'
+    use {
+        'sindrets/diffview.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+        config = [[require('plugins.diffview')]]
+    }
+
     -- Utilities
     use 'kazhala/close-buffers.nvim'
     use 'ntpeters/vim-better-whitespace'
