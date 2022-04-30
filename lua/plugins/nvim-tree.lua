@@ -23,6 +23,7 @@ require'nvim-tree'.setup {
   },
   git = {
     enable = true,
+    ignore = false,
     timeout = 400,
   },
 }
@@ -34,9 +35,9 @@ vim.g.nvim_tree_icons = {
         staged = "✓",
         unmerged = "",
         renamed = "➜",
-        untracked = "U",
+        untracked = "N",
         deleted = "",
-        ignored = "◌",
+        ignored = "i",
     },
     folder = {
         arrow_open = "",

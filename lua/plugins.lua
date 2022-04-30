@@ -28,7 +28,7 @@ return packer.startup(function(use)
 
     -- Buffer line
     use {
-        'akinsho/bufferline.nvim', 
+        'akinsho/bufferline.nvim',
         tag = '*',
         requires = 'kyazdani42/nvim-web-devicons',
         config = [[require('plugins.bufferline')]]
@@ -59,6 +59,16 @@ return packer.startup(function(use)
     use {'hrsh7th/cmp-path', after = 'nvim-cmp'}
     use {'hrsh7th/cmp-buffer', after = 'nvim-cmp'}
     use {'f3fora/cmp-spell', after = 'nvim-cmp'}
+
+    -- LSP
+    use 'williamboman/nvim-lsp-installer'
+    use {
+        'neovim/nvim-lspconfig',
+        config = [[require('plugins.lsp')]]
+    }
+
+    -- Utilities
+    use 'kazhala/close-buffers.nvim'
 
 
     ---- Language specific things ----
