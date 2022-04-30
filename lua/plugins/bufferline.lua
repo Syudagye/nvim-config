@@ -15,8 +15,8 @@ require("bufferline").setup{
 -- Keymaps
 local function km(...) vim.api.nvim_set_keymap(...) end
 
-km('n', '<A-,>', ':BufferLineCyclePrev<CR>', {})
-km('n', '<A-;>', ':BufferLineCycleNext<CR>', {})
-km('n', '<A-?>', ':BufferLineMovePrev<CR>', {})
-km('n', '<A-.>', ':BufferLineMoveNext<CR>', {})
-km('n', '<A-c>', ':BDelete this', {})
+km('n', '<A-,>', '<cmd>BufferLineCyclePrev<CR>', {})
+km('n', '<A-;>', '<cmd>BufferLineCycleNext<CR>', {})
+km('n', '<A-?>', '<cmd>BufferLineMovePrev<CR>', {})
+km('n', '<A-.>', '<cmd>BufferLineMoveNext<CR>', {})
+km('n', '<A-c>', '<cmd>BDelete this<CR>', {})

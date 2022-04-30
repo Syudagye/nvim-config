@@ -90,3 +90,10 @@ for _, lsp in pairs(servers) do
         }
     }
 end
+
+-- Setup fidget
+require"fidget".setup{
+    window = {
+        blend = 0
+    }
+}
