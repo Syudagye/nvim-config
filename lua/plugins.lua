@@ -81,9 +81,18 @@ return packer.startup(function(use)
     use 'williamboman/nvim-lsp-installer'
     use {
         'neovim/nvim-lspconfig',
-        config = [[require('plugins.lsp')]]
+        config = [[require('plugins.lsp')]],
+        afert = 'cmp-nvim-lsp'
     }
     use 'j-hui/fidget.nvim' -- Shows lsp info on the bottom right corner
+    use 'tami5/lspsaga.nvim'
+    use {
+        'folke/trouble.nvim',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function()
+            require('trouble').setup {}
+        end
+    }
 
     -- Treesitter
     use {
@@ -131,6 +140,15 @@ return packer.startup(function(use)
         end
     }
     use 'https://gitlab.com/yorickpeterse/nvim-pqf'
+    use {
+        'ahmedkhalf/project.nvim',
+        config = function() require('project_nvim').setup {} end
+    }
+    use {
+        'startup-nvim/startup.nvim',
+        requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+        config = function() require('startup').setup({ theme = 'evil' }) end
+    }
 
 
     ---- Language specific things ----
