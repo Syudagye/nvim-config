@@ -93,6 +93,10 @@ return packer.startup(function(use)
             require('trouble').setup {}
         end
     }
+    use {
+        'weilbith/nvim-code-action-menu',
+        cmd = 'CodeActionMenu',
+    }
 
     -- Treesitter
     use {

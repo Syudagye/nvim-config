@@ -47,7 +47,7 @@ local on_attach = function(client, bufnr)
     wk.register({
         l = {
             name = 'LSP',
-            a = { '<cmd>Lspsaga code_action<CR>', 'Code Actions', noremap = true, silent = true },
+            a = { '<cmd>CodeActionMenu<CR>', 'Code Actions', noremap = true, silent = true },
             D = { '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Type Definition', noremap = true, silent = true },
             r = { '<cmd>Lspsaga rename<CR>', 'Rename', noremap = true, silent = true },
             f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format', noremap = true, silent = true },
