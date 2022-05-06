@@ -16,21 +16,16 @@ if not status_ok then
 end
 
 -- Mappings for plugin related things
-local wk = require('which-key')
-
-wk.register({
-    p = {
-        name = 'Plugins',
-        u = { '<cmd>PackerSync<cr>', 'Update Packages', noremap = true },
-        s = { '<cmd>PackerStatus<cr>', 'Packer Status', noremap = true },
-    }
-}, { prefix = "<leader>" })
-
-local opts = {
-    display = {
-        open_fn = "call vimrc#floating_window()",
-    }
-}
+local status_ok, wk = pcall(require, 'which-key')
+if status_ok then
+    wk.register({
+        p = {
+            name = 'Plugins',
+            u = { '<cmd>PackerSync<cr>', 'Update Packages', noremap = true },
+            s = { '<cmd>PackerStatus<cr>', 'Packer Status', noremap = true },
+        }
+    }, { prefix = "<leader>" })
+end
 
 -- Packages
 return packer.startup(function(use)
