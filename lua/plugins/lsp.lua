@@ -39,7 +39,7 @@ local on_attach = function(client, bufnr)
     bkm('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     bkm('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     bkm('n', 'gr', '<cmd>TroubleToggle lsp_references<CR>', opts)
-    bkm('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    bkm('n', 'gI', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     bkm('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
     --km('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts) -- not sure if it is useful
 

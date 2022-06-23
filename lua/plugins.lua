@@ -92,6 +92,7 @@ return packer.startup(function(use)
         'weilbith/nvim-code-action-menu',
         cmd = 'CodeActionMenu',
     }
+    use 'liuchengxu/vista.vim'
 
     -- Treesitter
     use {
