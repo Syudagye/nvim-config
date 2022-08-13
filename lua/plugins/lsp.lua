@@ -73,10 +73,10 @@ local servers = {
     'html',
     'jsonls',
     'texlab',
-    'zeta_note',
     'svelte',
     'vimls',
     'zls',
+    'rnix',
 }
 
 -- Server auto-installation

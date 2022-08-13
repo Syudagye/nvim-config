@@ -24,7 +24,7 @@ vim.g.sonokai_better_performance = 1
 vim.cmd('colorscheme sonokai')
 
 -- Check if started from neovide (this is the only way it works idk why)
-if vim.env.IS_NEOVIDE == "1" then
+if vim.api.nvim_call_function('exists', {'g:neovide'}) == 1 then
     return
 else
     vim.cmd('hi Normal guibg=NONE')
