@@ -160,6 +160,13 @@ return packer.startup(function(use)
         config = [[require('crates').setup()]] -- Need to dive into configuring this later
     }
 
+    -- Flutter
+    use {
+        'akinsho/flutter-tools.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+        config = [[require("flutter-tools").setup{}]],
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
