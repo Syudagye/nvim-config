@@ -26,7 +26,7 @@ o.autoread = true
 o.swapfile = false
 -- o.matchpairs = '(:),{:},[:],<:>,":",\':\',`:`,/*:*/'
 o.undofile = true
-o.guifont = 'iosevka:h9'
+o.guifont = 'iosevka:h8'
 o.timeoutlen = 500
 o.pumwidth = 30 -- minimum completion menu width (do not work idk)
 
