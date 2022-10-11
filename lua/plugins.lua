@@ -149,6 +149,10 @@ return packer.startup(function(use)
         requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
         config = function() require('startup').setup({ theme = 'evil' }) end
     }
+    use {
+      'nmac427/guess-indent.nvim',
+      config = function() require('guess-indent').setup {} end,
+    }
 
 
     ---- Language specific things ----
@@ -162,6 +166,13 @@ return packer.startup(function(use)
 
     -- RON
     use 'ron-rs/ron.vim'
+
+    -- Flutter
+    use {
+        'akinsho/flutter-tools.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+        config = [[require("flutter-tools").setup{}]],
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
