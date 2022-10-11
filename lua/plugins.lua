@@ -160,6 +160,9 @@ return packer.startup(function(use)
         config = [[require('crates').setup()]] -- Need to dive into configuring this later
     }
 
+    -- RON
+    use 'ron-rs/ron.vim'
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
