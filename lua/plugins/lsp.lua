@@ -77,7 +77,7 @@ local servers = {
     'vimls',
     'zls',
     'rnix',
-    'dartls',
+    -- 'dartls',
 }
 
 -- Server auto-installation

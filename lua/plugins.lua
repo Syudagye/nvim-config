@@ -147,7 +147,7 @@ return packer.startup(function(use)
     use {
         'startup-nvim/startup.nvim',
         requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-        config = function() require('startup').setup({ theme = 'evil' }) end
+        config = [[require('plugins.startup')]]
     }
     use {
       'nmac427/guess-indent.nvim',
