@@ -1,15 +1,15 @@
 -- Options
 require("bufferline").setup{
-    offsets = {
-        {
-            filetype = "NvimTree",
-            text = "File Explorer",
-            highlight = "Directory",
-            text_align = "left"
-        }
-    },
-    show_tab_indicators = true,
-    always_show_bufferline = false
+    -- offsets = {
+    --     {
+    --         filetype = "NvimTree",
+    --         text = "File Explorer",
+    --         highlight = "Directory",
+    --         text_align = "left"
+    --     }
+    -- },
+    -- show_tab_indicators = true,
+    -- always_show_bufferline = false
 }
 
 -- Keymaps
