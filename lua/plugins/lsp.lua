@@ -50,7 +50,7 @@ local on_attach = function(client, bufnr)
             a = { '<cmd>CodeActionMenu<CR>', 'Code Actions', noremap = true, silent = true },
             D = { '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Type Definition', noremap = true, silent = true },
             r = { '<cmd>Lspsaga rename<CR>', 'Rename', noremap = true, silent = true },
-            f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format', noremap = true, silent = true },
+            f = { '<cmd>lua vim.lsp.buf.format()<CR>', 'Format', noremap = true, silent = true },
         }
     }, {
         prefix = "<leader>",
@@ -65,7 +65,7 @@ local servers = {
     'rust_analyzer',
     'tsserver',
     'clangd',
-    'sumneko_lua',
+    'lua_ls',
     'omnisharp',
     'cmake',
     'cssls',
@@ -97,7 +97,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if status_ok then
-    capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+    capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 end
 
 for _, lsp in pairs(servers) do
