@@ -32,10 +32,9 @@ require("lazy").setup({
 
   -- status line
   {
-    "rebelot/heirline.nvim",
-    event = "UiEnter",
-    config = function()
-      require("configs.heirline")
+    'nvim-lualine/lualine.nvim',
+    config = function ()
+      require("configs.lualine")
     end
   },
 
@@ -80,7 +79,6 @@ require("lazy").setup({
     end
   },
   'williamboman/mason-lspconfig.nvim',
-  'kosayoda/nvim-lightbulb',
   {
     'neovim/nvim-lspconfig',
     config = function()

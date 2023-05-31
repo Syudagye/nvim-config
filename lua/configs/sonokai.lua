@@ -23,10 +23,6 @@ vim.g.sonokai_better_performance = 1
 
 vim.cmd('colorscheme sonokai')
 
-function glassy()
-  -- for hl groups which need bg = "NONE" only!
-end
-
 -- Check if started from neovide (this is the only way it works idk why)
 if vim.api.nvim_call_function('exists', { 'g:neovide' }) == 1 then
   return
