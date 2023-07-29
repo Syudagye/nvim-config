@@ -93,7 +93,8 @@ require("lazy").setup({
           blend = 0
         }
       }
-    end
+    end,
+    branch = 'legacy'
   },
   {
     "glepnir/lspsaga.nvim",
