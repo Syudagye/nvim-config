@@ -50,9 +50,9 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   bkm('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  bkm('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  bkm('n', 'gr', '<cmd>TroubleToggle lsp_references<CR>', opts)
-  bkm('n', 'gI', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  bkm('n', 'gd', '<cmd>Trouble lsp_definitions<CR>', opts)
+  bkm('n', 'gr', '<cmd>Trouble lsp_references<CR>', opts)
+  bkm('n', 'gI', '<cmd>Trouble lsp_implementations<CR>', opts)
   bkm('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
   --km('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts) -- not sure if it is useful
 
@@ -91,10 +91,12 @@ local servers = {
   'zls',
   'rnix',
   'intelephense',
+  'ocamllsp',
   -- 'dartls',
 }
 
 -- Installing things
+require('mason').setup() -- must setup this before
 mason_lspconfig.setup({
   ensure_installed = servers,
   automatic_installation = true,

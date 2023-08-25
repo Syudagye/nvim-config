@@ -33,7 +33,7 @@ require("lazy").setup({
   -- status line
   {
     'nvim-lualine/lualine.nvim',
-    config = function ()
+    config = function()
       require("configs.lualine")
     end
   },
@@ -69,15 +69,13 @@ require("lazy").setup({
   'FelipeLema/cmp-async-path',
   'hrsh7th/cmp-buffer',
   'f3fora/cmp-spell',
-  'petertriho/cmp-git',
+  {
+    'petertriho/cmp-git',
+    dependencies = { { 'nvim-lua/plenary.nvim' } }
+  },
 
   -- LSP
-  {
-    "williamboman/mason.nvim",
-    config = function()
-      require('mason').setup()
-    end
-  },
+  'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
   {
     'neovim/nvim-lspconfig',
@@ -94,6 +92,7 @@ require("lazy").setup({
         }
       }
     end,
+    event = "LspAttach",
     branch = 'legacy'
   },
   {
@@ -112,19 +111,24 @@ require("lazy").setup({
   },
   {
     'folke/trouble.nvim',
+    event = "LspAttach",
     config = function()
       require('trouble').setup {}
     end
   },
-  'liuchengxu/vista.vim',
-  {
-    'simrat39/symbols-outline.nvim',
-    config = function()
-      require("symbols-outline").setup()
-    end
-  },
+
+  -- Cool, but maybe not be a necessity
+  -- 'liuchengxu/vista.vim',
+  -- {
+  --   'simrat39/symbols-outline.nvim',
+  --   config = function()
+  --     require("symbols-outline").setup()
+  --   end
+  -- },
+
   {
     'ray-x/lsp_signature.nvim',
+    event = "LspAttach",
     config = function()
       require('lsp_signature').setup({}) -- TODO: configure
     end
@@ -163,17 +167,20 @@ require("lazy").setup({
     end
   },
   'kdheepak/lazygit.nvim',
-  {
-    'sindrets/diffview.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('configs.diffview')
-    end
-  },
 
   -- Utilities
   'kazhala/close-buffers.nvim',
-  'ntpeters/vim-better-whitespace',
+  {
+    'ntpeters/vim-better-whitespace',
+    config = function()
+      vim.g.better_whitespace_filetypes_blacklist = {
+        -- defaults
+        'diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'fugitive',
+        -- specific ones
+        'dashboard'
+      }
+    end
+  },
   {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
@@ -181,6 +188,7 @@ require("lazy").setup({
         space_char_blankline = " ",
         show_current_context = true,
         show_current_context_start = true,
+        filetype_exclude = { 'dashboard' }
       }
     end
   },
@@ -197,16 +205,14 @@ require("lazy").setup({
     end
   },
   {
-    'ahmedkhalf/project.nvim',
-    config = function() require('project_nvim').setup {} end
+    'glepnir/dashboard-nvim',
+    event = 'VimEnter',
+    config = function()
+      -- TODO: Make this cool
+      require('dashboard').setup {}
+    end,
+    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
   },
-  --{
-  --    'startup-nvim/startup.nvim',
-  --    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-  --    config = function ()
-  --      require('configs.startup')
-  --    end
-  --},
   {
     'nmac427/guess-indent.nvim',
     config = function() require('guess-indent').setup {} end,
@@ -221,9 +227,13 @@ require("lazy").setup({
     dpendencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('crates').setup() -- Need to dive into configuring this later
-    end
+    end,
+    event = "BufEnter Cargo.toml"
   },
 
   -- RON
-  'ron-rs/ron.vim',
+  {
+    'ron-rs/ron.vim',
+    event = "BufEnter *.ron"
+  },
 })

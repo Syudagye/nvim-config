@@ -57,3 +57,5 @@ cmp.setup.filetype('gitcommit', {
     { name = 'buffer' },
   })
 })
+
+require("cmp_git").setup()
