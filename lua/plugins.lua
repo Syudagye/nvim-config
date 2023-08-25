@@ -214,6 +214,12 @@ require("lazy").setup({
     dependencies = { { 'nvim-tree/nvim-web-devicons' } }
   },
   {
+    'ahmedkhalf/project.nvim',
+    config = function()
+      require('project_nvim').setup()
+    end
+  },
+  {
     'nmac427/guess-indent.nvim',
     config = function() require('guess-indent').setup {} end,
   },
