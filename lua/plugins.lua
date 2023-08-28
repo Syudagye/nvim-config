@@ -205,13 +205,11 @@ require("lazy").setup({
     end
   },
   {
-    'glepnir/dashboard-nvim',
+    'goolord/alpha-nvim',
     event = 'VimEnter',
-    config = function()
-      -- TODO: Make this cool
-      require('dashboard').setup {}
-    end,
-    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+    config = function ()
+      require('configs.alpha')
+    end
   },
   {
     'ahmedkhalf/project.nvim',
@@ -223,7 +221,13 @@ require("lazy").setup({
     'nmac427/guess-indent.nvim',
     config = function() require('guess-indent').setup {} end,
   },
-
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function ()
+      require('telescope').load_extension('projects')
+    end
+  },
 
   ---- Language specific things ----
 
