@@ -5,15 +5,13 @@ local gen_button = require('alpha.themes.dashboard').button
 local function reverse(arr)
   local rev = {}
   for i = #arr, 1, -1 do
-    rev[#rev+1] = arr[i]
+    rev[#rev + 1] = arr[i]
   end
   return rev
 end
 
 local function projects()
   local pjs = reverse(require('project_nvim').get_recent_projects())
-
-  local shortcuts = {'a', 'z', 'e', 'r', 'r', 't', 'y', 'u', 'i', 'o'}
 
   local tbl = {}
   for i, pj in ipairs(table.move(pjs, 1, 10, 1, {})) do
@@ -31,8 +29,9 @@ local function projects()
       end
     end
 
-    local shortcut = shortcuts[i]
-    local e = gen_button(shortcut, short_pj_name, "<cmd>cd " .. pj .. " | Telescope find_files<CR>")
+    local shortcut = tostring(i - 1)
+    local e = gen_button('p ' .. shortcut, '[' .. shortcut .. '] ' .. short_pj_name,
+      "<cmd>cd " .. pj .. " | Telescope find_files<CR>")
     tbl[i] = e
   end
 
@@ -61,7 +60,7 @@ local section_projects = {
       shrink_margin = false
     },
     type = "group",
-    val = function ()
+    val = function()
       return { projects() }
     end
   } }
