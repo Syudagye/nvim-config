@@ -2,8 +2,16 @@ local alpha = require('alpha')
 local theme = require('alpha.themes.theta')
 local gen_button = require('alpha.themes.dashboard').button
 
+local function reverse(arr)
+  local rev = {}
+  for i = #arr, 1, -1 do
+    rev[#rev+1] = arr[i]
+  end
+  return rev
+end
+
 local function projects()
-  local pjs = require('project_nvim').get_recent_projects()
+  local pjs = reverse(require('project_nvim').get_recent_projects())
 
   local shortcuts = {'a', 'z', 'e', 'r', 'r', 't', 'y', 'u', 'i', 'o'}
 

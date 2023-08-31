@@ -92,6 +92,7 @@ local servers = {
   'rnix',
   'intelephense',
   'ocamllsp',
+  'emmet_language_server',
   -- 'dartls',
 }
 

@@ -207,7 +207,7 @@ require("lazy").setup({
   {
     'goolord/alpha-nvim',
     event = 'VimEnter',
-    config = function ()
+    config = function()
       require('configs.alpha')
     end
   },
@@ -222,10 +222,19 @@ require("lazy").setup({
     config = function() require('guess-indent').setup {} end,
   },
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.2',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function ()
+    config = function()
       require('telescope').load_extension('projects')
+
+      require('which-key').register({
+        f = { '<cmd>Telescope find_files<CR>', 'Telescope file browser', noremap = true, silent = true }
+      }, {
+        prefix = "<leader>",
+        noremap = true,
+        silent = true,
+      })
     end
   },
 
