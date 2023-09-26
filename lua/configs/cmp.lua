@@ -21,7 +21,7 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({
       behaviour = cmp.ConfirmBehavior.Replace,
       select = true
-    }),     -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -52,7 +52,7 @@ cmp.setup({
 -- Git commit
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
-    { name = 'cmp_git' },   -- You can specify the `cmp_git` source if you were installed it.
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
   }, {
     { name = 'buffer' },
   })

@@ -240,7 +240,7 @@ require("lazy").setup({
   },
   {
     'davidgranstrom/nvim-markdown-preview',
-    config = function ()
+    config = function()
       require('which-key').register({
         m = { '<cmd>MarkdownPreview<cr>', 'Toggle peak MarkDown preview', noremap = true, silent = true }
       }, {
