@@ -2,12 +2,7 @@
 --      | Mappings |
 --      +----------+
 
-local wk = require('which-key')
+local function km(...) vim.api.nvim_set_keymap(...) end
 
-wk.register({
-  c = {
-    name = 'Configuration',
-    e = { '<cmd>e $HOME/.config/nvim/init.lua<cr>', 'Edit Config', noremap = true },
-    r = { '<cmd>luafile $HOME/.config/nvim/init.lua<cr>', 'Reload Config', noremap = true },
-  }
-}, { prefix = "<leader>" })
+km('n', '<A-c>', '<cmd>bd<CR>', {})
+km('n', '<esc>', '<cmd>noh<CR>', {})

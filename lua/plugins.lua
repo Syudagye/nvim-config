@@ -109,13 +109,13 @@ require("lazy").setup({
       })
     end,
   },
-  {
-    'folke/trouble.nvim',
-    event = "LspAttach",
-    config = function()
-      require('trouble').setup {}
-    end
-  },
+  -- {
+  --   'folke/trouble.nvim',
+  --   event = "LspAttach",
+  --   config = function()
+  --     require('trouble').setup {}
+  --   end
+  -- },
 
   -- Cool, but maybe not be a necessity
   -- 'liuchengxu/vista.vim',
@@ -126,6 +126,7 @@ require("lazy").setup({
   --   end
   -- },
 
+  -- hints for function args when typing
   {
     'ray-x/lsp_signature.nvim',
     event = "LspAttach",
@@ -169,7 +170,6 @@ require("lazy").setup({
   'kdheepak/lazygit.nvim',
 
   -- Utilities
-  'kazhala/close-buffers.nvim',
   {
     'ntpeters/vim-better-whitespace',
     config = function()
@@ -229,7 +229,20 @@ require("lazy").setup({
       require('telescope').load_extension('projects')
 
       require('which-key').register({
-        f = { '<cmd>Telescope find_files<CR>', 'Telescope file browser', noremap = true, silent = true }
+        f = { '<cmd>Telescope find_files<CR>', 'Telescope file browser', noremap = true, silent = true },
+        p = { '<cmd>Telescope projects<CR>', 'Telescope projects list', noremap = true, silent = true }
+      }, {
+        prefix = "<leader>",
+        noremap = true,
+        silent = true,
+      })
+    end
+  },
+  {
+    'davidgranstrom/nvim-markdown-preview',
+    config = function ()
+      require('which-key').register({
+        m = { '<cmd>MarkdownPreview<cr>', 'Toggle peak MarkDown preview', noremap = true, silent = true }
       }, {
         prefix = "<leader>",
         noremap = true,
