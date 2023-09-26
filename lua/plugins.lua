@@ -109,13 +109,13 @@ require("lazy").setup({
       })
     end,
   },
-  -- {
-  --   'folke/trouble.nvim',
-  --   event = "LspAttach",
-  --   config = function()
-  --     require('trouble').setup {}
-  --   end
-  -- },
+  {
+    'folke/trouble.nvim',
+    event = "LspAttach",
+    config = function()
+      require('trouble').setup {}
+    end
+  },
 
   -- Cool, but maybe not be a necessity
   -- 'liuchengxu/vista.vim',
