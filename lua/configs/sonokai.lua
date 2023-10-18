@@ -24,31 +24,6 @@ vim.g.sonokai_better_performance = 1
 vim.cmd('colorscheme sonokai')
 
 -- Check if started from neovide (this is the only way it works idk why)
-if vim.api.nvim_call_function('exists', { 'g:neovide' }) == 1 then
-  return
-else
-  local hl_groups = {
-    "NormalFloat",
-    "Normal",
-    "Folded",
-    "NvimTreeNormal",
-    "NvimTreeNormalNC",
-    "NvimTreeCursorLine",
-    "TelescopeNormal",
-    "TelescopePrompt",
-    "TelescopeResults",
-    "TelescopePromptNormal",
-    "TelescopePromptPrefix",
-    "CursorLine",
-    "Pmenu",
-    "CmpPmenu",
-    "SignColumn",
-    "EndOfBuffer",
-    "Statusline",
-    "LineNr",
-  }
-
-  for _, groups in ipairs(hl_groups) do
-    vim.api.nvim_set_hl(0, groups, { bg = 'NONE' })
-  end
+if vim.api.nvim_call_function('exists', { 'g:neovide' }) ~= 1 then
+  vim.cmd('TransparentEnable')
 end

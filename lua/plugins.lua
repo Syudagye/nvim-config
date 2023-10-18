@@ -21,6 +21,7 @@ require("lazy").setup({
       require('configs.sonokai')
     end
   },
+  'xiyaowong/transparent.nvim', -- To remove background color
 
   -- Buffer line
   {
@@ -75,8 +76,12 @@ require("lazy").setup({
   },
 
   -- LSP
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
+  {
+    'williamboman/mason.nvim',
+    config = function ()
+      require('mason').setup()
+    end
+  },
   {
     'neovim/nvim-lspconfig',
     config = function()

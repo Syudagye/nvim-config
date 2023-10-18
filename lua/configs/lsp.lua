@@ -1,6 +1,5 @@
 -- LSP configuration, mostly copied from the github repo readmes
 local wk = require("which-key")
-local mason_lspconfig = require('mason-lspconfig')
 local lspconfig = require('lspconfig')
 
 -- Mappings.
@@ -93,15 +92,8 @@ local servers = {
   'intelephense',
   'ocamllsp',
   'emmet_language_server',
-  -- 'dartls',
+  'dartls',
 }
-
--- Installing things
-require('mason').setup() -- must setup this before
-mason_lspconfig.setup({
-  ensure_installed = servers,
-  automatic_installation = true,
-})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- Yanked from NvChad
