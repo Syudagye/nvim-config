@@ -23,8 +23,10 @@ vim.g.sonokai_better_performance = 1
 
 vim.cmd('colorscheme sonokai')
 
+require('transparent')
 -- Check if started from neovide (this is the only way it works idk why)
-if vim.api.nvim_call_function('exists', { 'g:neovide' }) ~= 1 then
-  require('transparent')
+if vim.api.nvim_call_function('exists', { 'g:neovide' }) == 1 then
+  vim.cmd('TransparentDisable')
+else
   vim.cmd('TransparentEnable')
 end
