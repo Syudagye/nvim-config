@@ -78,7 +78,7 @@ require("lazy").setup({
   -- LSP
   {
     'williamboman/mason.nvim',
-    config = function ()
+    config = function()
       require('mason').setup()
     end
   },
@@ -152,6 +152,19 @@ require("lazy").setup({
         attach_navic = false,
       })
     end
+  },
+
+
+  -- DAP
+  {
+    'mfussenegger/nvim-dap',
+    config = function()
+      require('configs.dap')
+    end
+  },
+  {
+    'rcarriga/nvim-dap-ui',
+    dependencies = { 'mfussenegger/nvim-dap' },
   },
 
 
@@ -267,10 +280,27 @@ require("lazy").setup({
     end,
     event = "BufEnter Cargo.toml"
   },
+  -- TODO: Make this work, or find an alternative...
+  -- {
+  --   'simrat39/rust-tools.nvim',
+  --   dependencies = { 'nvim-lua/plenary.nvim' },
+  --   config = function()
+  --     require('configs.lang-tools.rust')
+  --   end
+  -- },
 
   -- RON
   {
     'ron-rs/ron.vim',
     event = "BufEnter *.ron"
+  },
+
+  -- CMake
+  {
+    'Civitasv/cmake-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('configs.lang-tools.cmake')
+    end
   },
 })
