@@ -175,7 +175,6 @@ require("lazy").setup({
       require('configs.treesitter')
     end
   },
-  'p00f/nvim-ts-rainbow',
   'nvim-treesitter/nvim-treesitter-textobjects',
 
   -- Git
