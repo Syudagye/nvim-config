@@ -93,6 +93,7 @@ local servers = {
   'ocamllsp',
   'emmet_language_server',
   'dartls',
+  'nixd',
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

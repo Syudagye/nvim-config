@@ -57,7 +57,11 @@ require("lazy").setup({
 
   -- Completion
   'onsails/lspkind.nvim', -- for vscode-like icons in completion menu
-  'L3MON4D3/LuaSnip',     -- Snippets engine
+  {
+    "L3MON4D3/LuaSnip",   -- Snippets engine
+    version = "v2.*",     -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    build = "make install_jsregexp"
+  },
   {
     'hrsh7th/nvim-cmp',
     config = function()
@@ -123,13 +127,13 @@ require("lazy").setup({
   },
 
   -- Cool, but maybe not be a necessity
-  -- 'liuchengxu/vista.vim',
-  -- {
-  --   'simrat39/symbols-outline.nvim',
-  --   config = function()
-  --     require("symbols-outline").setup()
-  --   end
-  -- },
+  'liuchengxu/vista.vim',
+  {
+    'simrat39/symbols-outline.nvim',
+    config = function()
+      require("symbols-outline").setup()
+    end
+  },
 
   -- hints for function args when typing
   {
@@ -200,14 +204,11 @@ require("lazy").setup({
   },
   {
     'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require("indent_blankline").setup {
-        space_char_blankline = " ",
-        show_current_context = true,
-        show_current_context_start = true,
-        filetype_exclude = { 'dashboard' }
-      }
-    end
+    main = "ibl",
+    opts = {
+      exclude = { filetypes = { 'dashboard' } },
+      scope = { enabled = true }
+    }
   },
   {
     'windwp/nvim-autopairs',
