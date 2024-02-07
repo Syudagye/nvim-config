@@ -88,7 +88,6 @@ local servers = {
   'svelte',
   'vimls',
   'zls',
-  'rnix',
   'intelephense',
   'ocamllsp',
   'emmet_language_server',
