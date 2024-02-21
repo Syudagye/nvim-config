@@ -93,6 +93,7 @@ local servers = {
   'emmet_language_server',
   'dartls',
   'nixd',
+  'gdscript',
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
