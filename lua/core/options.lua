@@ -31,3 +31,4 @@ o.timeoutlen = 500
 o.pumwidth = 30 -- minimum completion menu width (do not work idk)
 
 vim.g.mapleader = ' '
+vim.g.neovide_scroll_animation_length = 0

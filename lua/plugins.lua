@@ -105,7 +105,7 @@ require("lazy").setup({
     branch = 'legacy'
   },
   {
-    "glepnir/lspsaga.nvim",
+    "nvimdev/lspsaga.nvim",
     event = "LspAttach",
     config = function()
       require("lspsaga").setup({
@@ -128,12 +128,6 @@ require("lazy").setup({
 
   -- Cool, but maybe not be a necessity
   'liuchengxu/vista.vim',
-  {
-    'simrat39/symbols-outline.nvim',
-    config = function()
-      require("symbols-outline").setup()
-    end
-  },
 
   -- hints for function args when typing
   {
@@ -300,7 +294,7 @@ require("lazy").setup({
     'Civitasv/cmake-tools.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-      require('configs.lang-tools.cmake')
+      -- require('configs.lang-tools.cmake')
     end
   },
 })
