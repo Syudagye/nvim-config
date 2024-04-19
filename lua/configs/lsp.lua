@@ -94,6 +94,7 @@ local servers = {
   'dartls',
   'nixd',
   'gdscript',
+  'elmls',
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
