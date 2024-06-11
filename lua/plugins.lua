@@ -158,7 +158,8 @@ require("lazy").setup({
     'mfussenegger/nvim-dap',
     config = function()
       require('configs.dap')
-    end
+    end,
+    dependencies = { 'nvim-neotest/nvim-nio' },
   },
   {
     'rcarriga/nvim-dap-ui',
