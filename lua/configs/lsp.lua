@@ -40,12 +40,13 @@ local on_attach = function(client, bufnr)
 
   -- Which key mappings
   wk.add({
-    { "<leader>l", buffer = 1, group = "LSP", remap = false },
-    { "<leader>lD", "<cmd>lua vim.lsp.buf.type_definition()<CR>", buffer = 1, desc = "Type Definition", remap = false },
-    { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", buffer = 1, desc = "Code Actions", remap = false },
-    { "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", buffer = 1, desc = "Format", remap = false },
-    { "<leader>lr", "<cmd>Lspsaga rename<cr>", buffer = 1, desc = "Rename", remap = false },
+    { "<leader>l", buffer = true, group = "LSP", remap = false },
+    { "<leader>lD", "<cmd>lua vim.lsp.buf.type_definition()<CR>", buffer = true, desc = "Type Definition", remap = false },
+    { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", buffer = true, desc = "Code Actions", remap = false },
+    { "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", buffer = true, desc = "Format", remap = false },
+    { "<leader>lr", "<cmd>Lspsaga rename<cr>", buffer = true, desc = "Rename", remap = false },
   })
+  print("setup done")
 end
 
 local servers = {
