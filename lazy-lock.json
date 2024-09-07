@@ -44,6 +44,7 @@
   "transparent.nvim": { "branch": "main", "commit": "8a2749a2fa74f97fe6557f61b89ac7fd873f3c21" },
   "trouble.nvim": { "branch": "main", "commit": "6efc446226679fda0547c0fd6a7892fd5f5b15d8" },
   "vim-better-whitespace": { "branch": "master", "commit": "86a0579b330b133b8181b8e088943e81c26a809e" },
+  "vim-glsl": { "branch": "master", "commit": "40dd0b143ef93f3930a8a409f60c1bb85e28b727" },
   "vista.vim": { "branch": "master", "commit": "c07585b588071adc8e9670becadb89307153e4d1" },
   "which-key.nvim": { "branch": "main", "commit": "bfec3d6bc0a9b0b2cb11644642f78c2c3915eef0" }
 }

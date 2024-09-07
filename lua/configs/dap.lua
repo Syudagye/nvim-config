@@ -22,17 +22,15 @@ km('n', '<F10>', '<cmd>lua require("dap").step_over() <cr>', opts)
 km('n', '<F11>', '<cmd>lua require("dap").step_into() <cr>', opts)
 km('n', '<F12>', '<cmd>lua require("dap").step_out() <cr>', opts)
 
-wk.register({
-  b = {
+wk.add({
+  {
+    "<leader>b",
     function()
       require('dap').toggle_breakpoint()
     end,
-    'Toggle a breakpoint',
+    desc = "Toggle a breakpoint",
+    remap = false
   },
-}, {
-  prefix = '<leader>',
-  noremap = true,
-  silent = true
 })
 
 -- Config for dapui

@@ -10,33 +10,16 @@ km('<C-k>', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
 km('<C-h>', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
 km('<C-l>', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 -- Which key global mappings
-wk.register({
-  l = {
-    name = 'LSP',
-    i = { '<cmd>LspInfo<CR>', 'Infos', noremap = true, silent = true },
-    I = { '<cmd>LspInstallInfo<CR>', 'Installed Servers Infos', noremap = true, silent = true },
-    R = { '<cmd>LspRestart<CR>', 'Restart LSP', noremap = true, silent = true },
-    d = {
-      name = "Diagnostics",
-      d = {
-        '<cmd>TroubleToggle document_diagnostics<CR>',
-        'Open diagnostics window for current document',
-        noremap = true,
-        silent = true
-      },
-      w = {
-        '<cmd>TroubleToggle workspace_diagnostics<CR>',
-        'Open diagnostics window for current workspace',
-        noremap = true,
-        silent = true
-      },
-    }
-  }
-}, {
-  prefix = "<leader>",
-  noremap = true,
-  silent = true,
-})
+
+wk.add({
+  { "<leader>l",   group = "LSP",                                  remap = false },
+  { "<leader>lI",  "<cmd>LspInstallInfo<CR>",                      desc = "Installed Servers Infos",                       remap = false },
+  { "<leader>lR",  "<cmd>LspRestart<CR>",                          desc = "Restart LSP",                                   remap = false },
+  { "<leader>ld",  group = "Diagnostics",                          remap = false },
+  { "<leader>ldd", "<cmd>TroubleToggle document_diagnostics<CR>",  desc = "Open diagnostics window for current document",  remap = false },
+  { "<leader>ldw", "<cmd>TroubleToggle workspace_diagnostics<CR>", desc = "Open diagnostics window for current workspace", remap = false },
+  { "<leader>li",  "<cmd>LspInfo<CR>",                             desc = "Infos",                                         remap = false },
+});
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -56,26 +39,19 @@ local on_attach = function(client, bufnr)
   --km('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts) -- not sure if it is useful
 
   -- Which key mappings
-  wk.register({
-    l = {
-      name = 'LSP',
-      a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Actions', noremap = true, silent = true },
-      D = { '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Type Definition', noremap = true, silent = true },
-      r = { '<cmd>Lspsaga rename<cr>', 'Rename', noremap = true, silent = true },
-      f = { '<cmd>lua vim.lsp.buf.format()<CR>', 'Format', noremap = true, silent = true },
-    }
-  }, {
-    prefix = "<leader>",
-    noremap = true,
-    silent = true,
-    buffer = bufnr,
+  wk.add({
+    { "<leader>l", buffer = 1, group = "LSP", remap = false },
+    { "<leader>lD", "<cmd>lua vim.lsp.buf.type_definition()<CR>", buffer = 1, desc = "Type Definition", remap = false },
+    { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", buffer = 1, desc = "Code Actions", remap = false },
+    { "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", buffer = 1, desc = "Format", remap = false },
+    { "<leader>lr", "<cmd>Lspsaga rename<cr>", buffer = 1, desc = "Rename", remap = false },
   })
 end
 
 local servers = {
   'pyright',
   'rust_analyzer',
-  'tsserver',
+  'ts_ls',
   'clangd',
   'lua_ls',
   'omnisharp',
@@ -96,6 +72,7 @@ local servers = {
   'gdscript',
   'elmls',
   'lemminx',
+  'glsl_analyzer',
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

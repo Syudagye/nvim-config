@@ -236,31 +236,23 @@ require("lazy").setup({
   },
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.2',
+    tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('telescope').load_extension('projects')
 
-      require('which-key').register({
-        f = { '<cmd>Telescope find_files<CR>', 'Telescope file browser', noremap = true, silent = true },
-        p = { '<cmd>Telescope projects<CR>', 'Telescope projects list', noremap = true, silent = true }
-      }, {
-        prefix = "<leader>",
-        noremap = true,
-        silent = true,
+      require('which-key').add({
+        { "<leader>f", "<cmd>Telescope find_files<CR>", desc = "Telescope file browser",  remap = false },
+        { "<leader>p", "<cmd>Telescope projects<CR>",   desc = "Telescope projects list", remap = false },
       })
     end
   },
   {
     'davidgranstrom/nvim-markdown-preview',
     config = function()
-      require('which-key').register({
-        m = { '<cmd>MarkdownPreview<cr>', 'Toggle peak MarkDown preview', noremap = true, silent = true }
-      }, {
-        prefix = "<leader>",
-        noremap = true,
-        silent = true,
-      })
+      require('which-key').add({
+    { "<leader>m", "<cmd>MarkdownPreview<cr>", desc = "Toggle peak MarkDown preview", remap = false },
+  })
     end
   },
 
@@ -298,4 +290,7 @@ require("lazy").setup({
       -- require('configs.lang-tools.cmake')
     end
   },
+
+  -- GLSL
+  'tikhomirov/vim-glsl',
 })

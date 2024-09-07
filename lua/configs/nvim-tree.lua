@@ -130,6 +130,6 @@ vim.g.nvim_tree_icons = {
 -- Spawning an explorer
 local wk = require("which-key")
 
-wk.register({
-  e = { '<cmd>:NvimTreeToggle<cr>', 'File Tree', noremap = true }
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>e", "<cmd>:NvimTreeToggle<cr>", desc = "File Tree", remap = false },
+  })
