@@ -251,8 +251,8 @@ require("lazy").setup({
     'davidgranstrom/nvim-markdown-preview',
     config = function()
       require('which-key').add({
-    { "<leader>m", "<cmd>MarkdownPreview<cr>", desc = "Toggle peak MarkDown preview", remap = false },
-  })
+        { "<leader>m", "<cmd>MarkdownPreview<cr>", desc = "Toggle peak MarkDown preview", remap = false },
+      })
     end
   },
 
@@ -293,4 +293,14 @@ require("lazy").setup({
 
   -- GLSL
   'tikhomirov/vim-glsl',
+
+  -- Ocaml
+  {
+    'Syudagye/utop.nvim',
+    opts = {
+      insert_on_open = false,
+      evaluate_keybind = "<leader>v",
+      open_keybind = "<leader>o",
+    }
+  },
 })
