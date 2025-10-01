@@ -1,6 +1,6 @@
 -- LSP configuration, mostly copied from the github repo readmes
 local wk = require("which-key")
-local lspconfig = require('lspconfig')
+local lspconfig = vim.lsp.config
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -74,6 +74,7 @@ local servers = {
   'lemminx',
   'glsl_analyzer',
   'jdtls',
+  'kotlin_language_server',
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -103,14 +104,14 @@ end
 
 -- LSP Auto Config
 for _, lsp in pairs(servers) do
-  lspconfig[lsp].setup {
+  lspconfig[lsp] = {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 end
 
 -- Server Specific config
-lspconfig.lua_ls.setup {
+lspconfig.lua_ls = {
   on_attach = on_attach,
   capabilities = capabilities,
 
@@ -133,7 +134,7 @@ lspconfig.lua_ls.setup {
   },
 }
 
-lspconfig.nixd.setup {
+lspconfig.nixd = {
   on_attach = on_attach,
   capabilities = capabilities,
 
